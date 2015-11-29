@@ -68,10 +68,10 @@ class Product_Image extends Image {
 
 	/**
 	 * @usage can be used in a template like this $Image.Thumbnail.Link
-	 * @param GD $gd
-	 * @return GD
+	 * @param GDBackend $gd
+	 * @return GDBackend
 	 **/
-	function generateThumbnail(GD $gd) {
+	function generateThumbnail(GDBackend $gd) {
 		$gd->setQuality(90);
 		return $gd->paddedResize($this->ThumbWidth(), $this->ThumbHeight());
 	}
@@ -82,9 +82,9 @@ class Product_Image extends Image {
 
 	/**
 	 * @usage can be used in a template like this $Image.SmallImage.Link
-	 * @return GD
+	 * @return GDBackend
 	 **/
-	function generateSmallImage(GD $gd) {
+	function generateSmallImage(GDBackend $gd) {
 		$gd->setQuality(90);
 		return $gd->paddedResize($this->SmallWidth(), $this->SmallHeight());
 	}
@@ -95,9 +95,9 @@ class Product_Image extends Image {
 
 	/**
 	 * @usage can be used in a template like this $Image.ContentImage.Link
-	 * @return GD
+	 * @return GDBackend
 	 **/
-	function generateContentImage(GD $gd) {
+	function generateContentImage(GDBackend $gd) {
 		$gd->setQuality(90);
 		return $gd->resizeByWidth($this->ContentWidth());
 	}
@@ -108,9 +108,9 @@ class Product_Image extends Image {
 	}
 	/**
 	 * @usage can be used in a template like this $Image.LargeImage.Link
-	 * @return GD
+	 * @return GDBackend
 	 **/
-	function generateLargeImage(GD $gd) {
+	function generateLargeImage(GDBackend $gd) {
 		$gd->setQuality(90);
 		return $gd->resizeByWidth($this->LargeWidth());
 	}
