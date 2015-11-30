@@ -30,7 +30,7 @@ class EcomQuantityField extends NumericField {
 	/**
 	 *@var $parameters Array();???
 	 **/
-	protected $parameters = null;
+	protected $parameters = array();
 
 	/**
 	 *@var $classes Array()
@@ -59,7 +59,7 @@ class EcomQuantityField extends NumericField {
 	/**
 	 *@param $object - the buyable / OrderItem
 	 **/
-	function __construct($object, $parameters = null){
+	function __construct($object, $parameters = array()){
 		Requirements::javascript("ecommerce/javascript/EcomQuantityField.js"); // LEAVE HERE - NOT EASY TO INCLUDE VIA TEMPLATE
 		if($object instanceof BuyableModel){
 			$this->orderItem = ShoppingCart::singleton()->findOrMakeItem($object,$parameters);

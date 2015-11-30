@@ -637,7 +637,7 @@ class Product extends Page implements BuyableModel {
 	 **/
 	public function OrderItem() {
 		//work out the filter
-		$filter = "";
+		$filter = array();
 		$extendedFilter = $this->extend('updateItemFilter', $filter);
 		if($extendedFilter !== null && is_array($extendedFilter) && count($extendedFilter)) {
 			$filter = $extendedFilter;
