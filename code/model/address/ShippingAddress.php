@@ -226,7 +226,7 @@ class ShippingAddress extends OrderAddress {
 			$shippingFields->push($this->getRegionField("ShippingRegionID", "ShippingRegionCode"));
 			$shippingFields->push($this->getPostalCodeField("ShippingPostalCode"));
 			$shippingFields->push($this->getCountryField("ShippingCountry"));
-			$this->makeSelectedFieldsReadOnly($shippingFields);
+			$this->makeSelectedFieldsReadOnly($shippingFields->FieldList());
 			$shippingFieldsHeader->addExtraClass("shippingFieldsHeader");
 			$shippingFields->addExtraClass("orderAddressHolder");
 			$fields->push($shippingFieldsHeader);

@@ -223,7 +223,7 @@ class BillingAddress extends OrderAddress {
 		$billingFields->push($this->getCountryField("Country"));
 		$billingFields->addExtraClass('billingFields');
 		$billingFields->addExtraClass("orderAddressHolder");
-		$this->makeSelectedFieldsReadOnly($billingFields);
+		$this->makeSelectedFieldsReadOnly($billingFields->FieldList());
 		$fields->push($billingFields);
 		$this->extend('augmentEcommerceBillingAddressFields', $fields);
 		return $fields;

@@ -17,7 +17,7 @@
 EcomQuantityField = {
 
 	//todo: make more specific! some selector that holds true for all cart holders.
-	hidePlusAndMinues: true,
+	hidePlusAndMinues: false,
 
 	delegateRootSelector: 'body',
 		set_delegateRootSelector: function(s) {this.delegateRootSelector = s;},
@@ -96,10 +96,12 @@ EcomQuantityField = {
 						this.value = 1;
 					}
 					if(this.value < 2) {
-						jQuery(this).siblings(EcomQuantityField.removeSelector).css("visibility", "hidden");
+						jQuery(this).siblings(EcomQuantityField.removeSelector).hide();
+						// jQuery(this).siblings(EcomQuantityField.removeSelector).css("visibility", "hidden");
 					}
 					else {
-						jQuery(this).siblings(EcomQuantityField.removeSelector).css("visibility", "visible");
+						jQuery(this).siblings(EcomQuantityField.removeSelector).show();
+						// jQuery(this).siblings(EcomQuantityField.removeSelector).css("visibility", "visible");
 					}
 					if(EcomQuantityField.lastValue[jQuery(this).attr("name")] != jQuery(this).val()) {
 						EcomQuantityField.lastValue[jQuery(this).attr("name")] = jQuery(this).val();
