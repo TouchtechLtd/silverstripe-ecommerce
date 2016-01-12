@@ -59,10 +59,14 @@ class OrderForm_Payment extends Form {
 				$order = Order::get_by_id_if_can_view($orderID);
 				if($order && $order->canPay()) {
 					if(EcommercePayment::validate_payment($order, $form, $data)) {
-
-						return EcommercePayment::process_payment_form_and_return_next_step($order, $form, $data);
+						$payment = EcommercePayment::process_payment_form_and_return_next_step($order, $form, $data);
 					}
-					else {
+
+					if ($payment) {
+						ShoppingCart::singleton()->submit();
+						$order->tryToFinaliseOrder();
+						return $payment;
+					} else {
 						//error messages are set in validation
 						return $this->controller->redirectBack();
 					}

@@ -2156,19 +2156,14 @@ class Order extends DataObject implements EditableEcommerceObject {
 	 **/
 	function TotalOutstanding() {return $this->getTotalOutstanding();}
 	function getTotalOutstanding() {
-		if($this->IsSubmitted()) {
-			$total = $this->Total();
-			$paid = $this->TotalPaid();
-			$outstanding = $total - $paid;
-			$maxDifference = EcommerceConfig::get("Order", "maximum_ignorable_sales_payments_difference");
-			if(abs($outstanding) < $maxDifference) {
-				$outstanding = 0;
-			}
-			return floatval($outstanding);
+		$total = $this->Total();
+		$paid = $this->TotalPaid();
+		$outstanding = $total - $paid;
+		$maxDifference = EcommerceConfig::get("Order", "maximum_ignorable_sales_payments_difference");
+		if(abs($outstanding) < $maxDifference) {
+			$outstanding = 0;
 		}
-		else {
-			return 0;
-		}
+		return floatval($outstanding);
 	}
 
 	/**
