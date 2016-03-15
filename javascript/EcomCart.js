@@ -397,7 +397,7 @@ EcomCart = {
 		window.onpopstate = function(e){
 			if(e.state){
 				jQuery(EcomCart.ajaxifiedListHolderSelector).html(e.state.html);
-				document.title = e.state.pageTitle;
+				//document.title = e.state.pageTitle;
 			}
 		};
 	},
@@ -495,7 +495,7 @@ EcomCart = {
 									pageTitle,
 									url
 								);
-								document.title = pageTitle;
+								//document.title = pageTitle;
 								//update changes
 								//set changes also does the reinit
 								EcomCart.openAjaxCalls++;
